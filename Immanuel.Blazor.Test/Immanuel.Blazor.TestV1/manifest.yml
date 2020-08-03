@@ -1,0 +1,5 @@
+﻿applications:
+- name: test-cf-app
+  instances: 1
+  random-route: false
+  memory: 128MB
