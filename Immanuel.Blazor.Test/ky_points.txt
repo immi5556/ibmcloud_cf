@@ -1,0 +1,21 @@
+dotnet test --logger "trx;LogFileName=TestResults.trx"  --results-directory ./BuildReports/UnitTests /p:CollectCoverage=true /p:CoverletOutput=BuildReports\Coverage\ /p:CoverletOutputFormat=cobertura /p:Exclude="[xunit.*]*
+
+
+dotnet $(UserProfile)\.nuget\packages\reportgenerator\x.y.z\tools\netcoreapp3.0\ReportGenerator.dll -reports:OpenCover.xml -targetdir:coveragereport -reporttypes:Html
+
+
+dotnet test /home/jgoodwin/src/MetadataService/MetadataService.WebApi.Tests/MetadataService.WebApi.Tests.csproj --configuration Release --results-directory '/home/jgoodwin/src/MetadataService/TestResults' /p:CollectCoverage=true /p:CoverletOutput='/home/jgoodwin/src/MetadataService/TestResults/' /p:CoverletOutputFormat=cobertura /p:Exclude="[AssemblyFixtureExample]*" --logger trx
+
+dotnet test "./xUnit.DTable/xUnit.DTable.csproj" --configuration Release --results-directory "./TestResults/" /p:CollectCoverage=true /p:CoverletOutput="./TestResults" /p:CoverletOutputFormat=cobertura /p:Exclude="[AssemblyFixtureExample]*" --logger "trx;LogFileName=TestResult.xml" 
+
+
+
+dotnet test --configuration Release --results-directory "./TestResults/" /p:CollectCoverage=true /p:CoverletOutput="./TestResults" /p:CoverletOutputFormat=cobertura /p:Exclude="[AssemblyFixtureExample]*" --logger "trx;LogFileName=TestResult.xml" 
+
+dotnet test --configuration Release --results-directory "./TestResults/" --logger "trx;LogFileName=TestResult.xml" --collect:"XPlat Code Coverage"
+
+dotnet test --configuration Release --results-directory "./TestResults/" --logger "trx;LogFileName=TestResult.xml"
+
+dotnet test --configuration Release --collect:"XPlat Code Coverage"
+
+dotnet reportgenerator "-reports:TestResults/TestResult.xml" "-targetdir:TestResults/coverage" -reporttypes:Html
