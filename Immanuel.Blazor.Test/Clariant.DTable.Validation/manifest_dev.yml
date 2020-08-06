@@ -2,6 +2,6 @@
 applications:
 - name: data-compare-validator
   random-route: false
-  memory: 128M
- env:
+  memory: 128MB
+  env:
   ASPNETCORE_ENVIRONMENT : development-ibm
