@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Data Comparision</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ark-table@latest/ark-table.css" />
+    <script src="https://cdn.jsdelivr.net/npm/ark-fetch-api@latest/ark-api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ark-js-util@latest/ark-util.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ark-table@latest/ark-table.js"></script>
+</head>
+<body>
+    <div>
+        <h2 style="text-align:center;">Table Comparision</h2>
+    </div>
+    <div>
+        <input id="src-constr" type="text" placeholder="First DB - Connection String" value="Server=sgcbmd01;Database=CLARIANT_UEIOS_V3_UAT;User Id=SmartFactory;Password=Juniormints123;MultipleActiveResultSets=true;" />
+        <input id="dest-constr" type="text" placeholder="Second DB - Connection String" value="Server=sl-eu-de-1-portal.8.dblayer.com;Port=23019;Database=CLARIANT_UEIOS_V3;User Id=admin;Password=DRBLFXCSTCCLBIHU;" />
+        <input id="btnLstTable" type="button" value="List Tables" />
+    </div>
+    <div id="tblst-contain">
+        <div id="tbllst">
+            <table>
+                <thead>
+                    <tr>
+                        <td>
+                            Source Table
+                        </td>
+                        <td>
+                            Dest Table
+                        </td>
+                        <td>
+                            Compare
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select style="padding-left:10px;" id="src-tbl"></select><br />
+                            <select id="src-tbl-col"></select> (Order by)
+                        </td>
+                        <td>
+                            <select style="padding-left:10px;" id="dest-tbl"></select> <br />
+                            <select id="dest-tbl-col"></select> (Order by)
+                        </td>
+                        <td>
+                            <input type="button" value="Show Diff" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="~/js/evt.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>
